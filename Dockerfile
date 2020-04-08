@@ -123,10 +123,10 @@ RUN \
     sed-patch 's|/app/frontend;|/opt/nginx-proxy-manager/frontend;|' /etc/nginx/conf.d/production.conf && \
 
     # Change the HTTP port 80 to the unprivileged port 8080.
-    sed-patch 's|80;|8080;|' /etc/nginx/conf.d/default.conf && \
-    sed-patch 's|listen 80;|listen 8080;|' /opt/nginx-proxy-manager/templates/letsencrypt-request.conf && \
-    sed-patch 's|listen 80;|listen 8080;|' /opt/nginx-proxy-manager/templates/_listen.conf && \
-    sed-patch 's|listen 80 |listen 8080 |' /opt/nginx-proxy-manager/templates/default.conf && \
+    sed-patch 's|80;|8880;|' /etc/nginx/conf.d/default.conf && \
+    sed-patch 's|listen 80;|listen 8880;|' /opt/nginx-proxy-manager/templates/letsencrypt-request.conf && \
+    sed-patch 's|listen 80;|listen 8880;|' /opt/nginx-proxy-manager/templates/_listen.conf && \
+    sed-patch 's|listen 80 |listen 8880 |' /opt/nginx-proxy-manager/templates/default.conf && \
 
     # Change the HTTPs port 443 to the unprivileged port 4443.
     sed-patch 's|443 |4443 |' /etc/nginx/conf.d/default.conf && \
@@ -203,10 +203,10 @@ ENV APP_NAME="Nginx Proxy Manager" \
 VOLUME ["/config"]
 
 # Expose ports.
-#   - 8080: HTTP traffic
+#   - 8880: HTTP traffic
 #   - 4443: HTTPs traffic
 #   - 8181: Management web interface
-EXPOSE 8080 4443 8181
+EXPOSE 8880 4443 8181
 
 # Metadata.
 LABEL \
