@@ -44,7 +44,7 @@ Launch the Nginx Proxy Manager docker container with the following command:
 docker run -d \
     --name=nginx-proxy-manager \
     -p 8181:8181 \
-    -p 8080:8080 \
+    -p 8880:8880 \
     -p 4443:4443 \
     -v /docker/appdata/nginx-proxy-manager:/config:rw \
     jlesage/nginx-proxy-manager
@@ -109,7 +109,7 @@ container cannot be changed, but you are free to use any port on the host side.
 | Port | Mapping to host | Description |
 |------|-----------------|-------------|
 | 8181 | Mandatory | Port used to access the web interface of the application. |
-| 8080 | Mandatory | Port used to serve HTTP requests. |
+| 8880 | Mandatory | Port used to serve HTTP requests. |
 | 4443 | Mandatory | Port used to serve HTTPs requests. |
 
 ### Changing Parameters of a Running Container
@@ -153,7 +153,7 @@ services:
     build: .
     ports:
       - "8181:8181"
-      - "8080:8080"
+      - "8880:8880"
       - "4443:4443"
     volumes:
       - "/docker/appdata/nginx-proxy-manager:/config:rw"
@@ -283,7 +283,7 @@ to be forwarded:
 
 | Traffic type | Container port | Host port mapped to container | External port | Internal port | Internal IP address                           |
 |--------------|----------------|-------------------------------|---------------|---------------|-----------------------------------------------|
-| HTTP         | 8080           | XXXX                          | 80            | XXXX          | IP address of the host running the container. |
+| HTTP         | 8880           | XXXX                          | 80            | XXXX          | IP address of the host running the container. |
 | HTTPs        | 4443           | YYYY                          | 443           | YYYY          | IP address of the host running the container. |
 
 `XXXX` and `YYYY` are configurable port values.  Unless they conflict with other
